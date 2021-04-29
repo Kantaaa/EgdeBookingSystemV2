@@ -5,9 +5,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h2 class="mt-4">Opprette utstyr</h2>
 
-<h4>Equipment</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,27 +18,37 @@
                 <span asp-validation-for="Equipment.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Equipment.Info" class="control-label"></label>
-                <input asp-for="Equipment.Info" class="form-control" />
+                <label asp-for="Equipment.Info" class="control-label">Informasjon</label>
+                <input asp-for="Equipment.Info" placeholder="Legg til spesifiserende informasjon" class="form-control" />
                 <span asp-validation-for="Equipment.Info" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Equipment.ModelNumber" class="control-label">Serienummer</label>
+                <input asp-for="Equipment.ModelNumber" placeholder="Legg til serienummer" class="form-control" />
+                <span asp-validation-for="Equipment.ModelNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Equipment.CategoryID" class="control-label"></label>
-                <select asp-for="Equipment.CategoryID" class ="form-control" asp-items="ViewBag.CategoryID"></select>
+                <select asp-for="Equipment.CategoryID" class="form-control" asp-items="ViewBag.CategoryID">
+                    <option value="">Velg kategori </option>
+                </select>
+
             </div>
             <div class="form-group">
                 <label asp-for="Equipment.LocationID" class="control-label"></label>
-                <select asp-for="Equipment.LocationID" class ="form-control" asp-items="ViewBag.LocationID"></select>
+                <select asp-for="Equipment.LocationID" class="form-control" asp-items="ViewBag.LocationID">
+                    <option value="">Velg lokasjon </option>
+                </select>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Lagre" class="btn btn-egde-blå" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-page="Index">Back to List</a>
+    <a asp-page="Index">Tilbake til listen</a>
 </div>
 
 @section Scripts {

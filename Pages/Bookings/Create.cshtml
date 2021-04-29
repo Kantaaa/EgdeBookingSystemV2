@@ -1,0 +1,149 @@
+﻿@page
+@model EgdeBookingSystemV2.Pages.Bookings.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2 class="mt-4">Opprett booking</h2>
+
+
+<hr />
+<div class="row">
+    <div class=" ">
+        <form method="post" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row col-lg-3 mx-1" hidden>
+                <label asp-for="Booking.UserEmail" class="control-label" hidden></label>
+                <input asp-for="Booking.UserEmail" value="@User.Identity.Name" class="form-control" readonly />
+                <span asp-validation-for="Booking.UserEmail" class="text-danger"></span>
+            </div>
+            <div class="row col-lg-7">
+                <div class="form-group col-lg-6 mt-1">
+                    <label asp-for="Booking.StartDate" class="control-label"></label>
+                    <input asp-for="Booking.StartDate" class="form-control" />
+                    <span asp-validation-for="Booking.StartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group col-lg-6 mt-1">
+                    <label asp-for="Booking.EndDate" class="control-label"></label>
+                    <input asp-for="Booking.EndDate" class="form-control" />
+                    <span asp-validation-for="Booking.EndDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group " hidden>
+                <label asp-for="Booking.EquipmentID" class="control-label" hidden></label>
+                <input asp-for="Booking.EquipmentID" class="form-control" value="@Model.Equipment.ID" readonly />
+            </div>
+
+            <dl class="row mx-1">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Equipment.ID)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Equipment.ID)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Equipment.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Equipment.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Equipment.Info)
+                </dt>
+                <dd class="col-md-10">
+                    @Html.DisplayFor(model => model.Equipment.Info)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Equipment.ModelNumber)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Equipment.ModelNumber)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Equipment.Category)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Equipment.Category.Name)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Equipment.Location.Name)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Equipment.Location.Name)
+                </dd>
+            </dl>
+
+
+            <div class="form-group mx-4">
+                <input type="submit" value="Book" class="btn btn-egde" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+<div>
+    <a asp-page="/UserView/Index">Tilbake til listen</a>
+</div>
+
+<div class="mx1 border-dark border-top mt-3">
+
+</div>
+
+
+@if (Model.BookingList.Count != 0)
+{
+<div>
+    <h4 class="mt-3 mx-2">Aktive bookinger av utstyret:</h4>
+    <hr />
+    <table class="table table-borderless table-hover table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookingList[0].UserEmail)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookingList[0].StartDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.BookingList[0].EndDate)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.BookingList)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserEmail)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndDate)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}
+else
+{
+    <h4>Det er ingen bookinger av dette utstyret</h4>
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+
+        <script src="~/lib/jquery.js"></script>
+        <script src="~/lib/jquery.validate.js"></script>
+        <script src="~/lib/jquery.validate.unobtrusive.js"></script>
+
+}

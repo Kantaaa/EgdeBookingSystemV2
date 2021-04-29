@@ -1,0 +1,64 @@
+﻿@page
+@model EgdeBookingSystemV2.Pages.Bookings.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+@if ((string)TempData["Referrer"] == "Slettet")
+{
+    <div class="alert alert-success mt-4">
+        <strong>Booking slettet</strong>
+    </div>
+}else if ((string)TempData["Referrer2"] == "Endret")
+{
+    <div class="alert alert-success mt-4">
+        <strong>Bookingen endret</strong>
+    </div>
+}
+
+<h2 class="mt-4 mx-2">Alle bookinger</h2>
+<hr />
+
+<table class="table table-borderless table-striped  table-hover">
+    <thead>
+        <tr>
+            <th class="h4 " hidden>
+                @Html.DisplayNameFor(model => model.Booking[0].UserEmail)
+            </th>
+            <th class="h4">
+                @Html.DisplayNameFor(model => model.Booking[0].StartDate)
+            </th>
+            <th class="h4">
+                @Html.DisplayNameFor(model => model.Booking[0].EndDate)
+            </th>
+            <th class="h4">
+                @Html.DisplayNameFor(model => model.Booking[0].Equipment.Name)
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Booking)
+        {
+            <tr>
+                <td hidden>
+                    @Html.DisplayFor(modelItem => item.UserEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Equipment.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-egde-blå">Endre</a>
+                    <a asp-page="./Details" asp-route-id="@item.ID">Detaljer</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger">Fjern</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

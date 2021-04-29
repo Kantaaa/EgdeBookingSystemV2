@@ -69,7 +69,7 @@ namespace EgdeBookingSystemV2.Pages.Equipments
                     throw;
                 }
             }
-
+            TempData["Referrer2"] = "Endret";
             return RedirectToPage("./Index");
         }
 

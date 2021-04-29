@@ -2,70 +2,149 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #0366d6;
+}
+.btn:hover {
+    color: #ff7300;
+    background-color: white;
+    border: 1px solid #ff7300;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.btn-egde {
+    background-color: #ff7300;
+    color: #000;
+    border: 1px solid #ff7300;
+    cursor: pointer;
+}
+.btn-egde-curved {
+    background-color: #ff7300;
+    color: #000;
+    border: 1px solid #ff7300;
+    cursor: pointer;
+    padding: 0 20px;
+    line-height: 30px;
+    font-size: inherit;
+    border-radius: 250px;
+}
+
+
+
+.btn-egde-small {
+    background-color: #ff7300;
+    color: #000;
+    border: 1px solid #ff7300;
+/*    padding: 5px 5px;*/
+    cursor: pointer;
+}
+
+.btn-egde-blå {
+    background-color: #01233d;
+    color: #fafafd;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+    .btn-egde-blå:hover {
+        background-color: #135394;
+        color: white;
+        border: 1px solid transparent;
+    }
+
+.logo-image {
+    
+    overflow: hidden;
+    margin-top: -6px;
+    image-rendering: pixelated;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
+
+.tableFixed2 {
+    table-layout: fixed !important ;
+}
+
+.table-hover-egde{
+      background-color: #9fcdff;
+    
+}
+
+
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
+
+
+.egde-primary {
+    background: #01233d;
+}
+
+
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }
+
+
+
+/*EGDE*/

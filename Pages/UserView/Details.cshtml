@@ -1,0 +1,59 @@
+﻿@page
+@model EgdeBookingSystemV2.Pages.UserView.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2 class="mt-4">Detaljer</h2>
+<hr />
+<div>
+    <h4>Utstyr</h4>
+
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Equipment.ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Equipment.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Equipment.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Equipment.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Equipment.Info)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Equipment.Info)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Equipment.ModelNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Equipment.ModelNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Equipment.Category)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Equipment.Category.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Equipment.Location)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Equipment.Location.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="/Bookings/Create" asp-route-id="@Model.Equipment.ID" class="btn btn-egde-small">Book</a>
+    
+</div>
+
+<div class="mt-3">
+    <a asp-page="./Index">Tilbake til listen</a>
+</div>

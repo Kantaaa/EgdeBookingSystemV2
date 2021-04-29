@@ -9,6 +9,10 @@ namespace EgdeBookingSystemV2.Data
 {
     public class EgdeBookingSystemConnection : IdentityDbContext
     {
+        public EgdeBookingSystemConnection()
+        {
+        }
+
         public EgdeBookingSystemConnection(DbContextOptions<EgdeBookingSystemConnection> options)
             : base(options)
         {

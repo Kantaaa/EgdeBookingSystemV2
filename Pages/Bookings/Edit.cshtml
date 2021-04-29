@@ -1,0 +1,48 @@
+﻿@page
+@model EgdeBookingSystemV2.Pages.Bookings.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2 class="mt-4">Endre booking</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Booking.ID" />
+            <div class="form-group">
+                <label asp-for="Booking.UserEmail" class="control-label"></label>
+                <input asp-for="Booking.UserEmail" class="form-control" />
+                <span asp-validation-for="Booking.UserEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Booking.StartDate" class="control-label"></label>
+                <input asp-for="Booking.StartDate" class="form-control" />
+                <span asp-validation-for="Booking.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Booking.EndDate" class="control-label"></label>
+                <input asp-for="Booking.EndDate" class="form-control" />
+                <span asp-validation-for="Booking.EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Booking.EquipmentID" class="control-label">ID</label>
+                <select asp-for="Booking.EquipmentID" class="form-control" asp-items="ViewBag.EquipmentID"></select>
+                <span asp-validation-for="Booking.EquipmentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Lagre" class="btn btn-egde-blå" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Tilbake til listen</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,67 @@
+﻿@page
+@model EgdeBookingSystemV2.Pages.MyPage.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Detaljer</h2>
+<hr />
+<div>
+    <h4>Booking</h4>
+
+    <dl class="row mx-1">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.UserEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Booking.UserEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.StartDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Booking.StartDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.EndDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Booking.EndDate)
+        </dd>
+    </dl>
+    <h4>Utstyrsinfo: </h4>
+  
+    <dl class="row mx-1">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.Equipment.ID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Booking.Equipment.ID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.Equipment.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Booking.Equipment.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.Equipment.Info)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Booking.Equipment.Info)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Booking.Equipment.ModelNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Booking.Equipment.ModelNumber)
+        </dd>
+
+
+    </dl>
+</div>
+<div>
+    @*<a asp-page="./Edit" asp-route-id="@Model.Booking.ID">Edit</a> |*@
+    <a asp-page="./Index">Tilbake til listen</a>
+</div>

@@ -9,9 +9,9 @@ namespace EgdeBookingSystemV2.Models
     public class Location
     {
         public int ID { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Stedsnavn er påkrevd")]
         [Display(Name = "Lokasjon")]
-        [StringLength(50, MinimumLength = 3)]
+        [StringLength(50, ErrorMessage = "Stedsnavnet må bestå av 3 til 50tegn", MinimumLength = 3)]
         public string Name { get; set; }
 
     }

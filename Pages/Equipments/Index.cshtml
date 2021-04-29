@@ -5,50 +5,100 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.js"></script>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
+
+<div >
+    <h2 class="mt-4 mx-2">Alt utstyr</h2>
+    <hr />
+
+    <div class="mx-2">
+        <p>
+            <a asp-page="Create" class="btn btn-egde-blå ">Legg til utstyr</a>
+
+            <a asp-page="/Locations/Create" class="btn btn-egde-blå ">Legg til lokasjon</a>
+
+            <a asp-page="/Categories/Create" class="btn btn-egde-blå">Legg til kategori</a>
+        </p>
+
+
+
+        <p>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="text" asp-for="SearchString" placeholder="Søk etter utstyr" oninput="this.form.submit();" id="autofocusLastChar" />
+
+
+                <div class="input-group mx-2">
+
+                    <select class="custom-select" asp-for="CategoryFilter" asp-items="Model.Categories" oninput="this.form.submit();">
+                        <option value="">Alle kategorier </option>
+                    </select>
+
+                </div>
+                <div class="input-group mx-2">
+
+                    <select class="custom-select" asp-for="LocationFilter" asp-items="Model.Locations" oninput="this.form.submit();">
+                        <option value="">Alle lokasjoner </option>
+                    </select>
+
+
+                </div>
+
+            </form>
+
+        </p>
+    </div>
+</div>
+
+<table class="table table-striped table-borderless table-hover ">
     <thead>
         <tr>
-            <th>
+            <th class="h3">
                 @Html.DisplayNameFor(model => model.Equipment[0].Name)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Equipment[0].Info)
+            <th class="h3">
+                @Html.DisplayNameFor(model => model.Equipment[0].ModelNumber)
+            </th>
+            <th class="h3">
+                @Html.DisplayNameFor(model => model.Equipment[0].Location.Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Equipment[0].Category)
+
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Equipment[0].Location)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Equipment) {
+        @foreach (var item in Model.EquipmentSearch)
+        {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Info)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Category.Name)
-            </td>
+            @Html.DisplayFor(modelItem => item.ModelNumber)
+        </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Location.Name)
             </td>
             <td>
-                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                <a asp-page="/Bookings/Create" asp-route-id="@item.ID" class="btn btn-egde">Book</a> |
+                <a asp-page="./Edit" asp-route-id="@item.ID" >Endre</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Detaljer</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID" class="text-xl-right">Slett</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>
+
+<script type="text/javascript">
+    (function ($) {
+        $.fn.focusTextToEnd = function () {
+            this.focus();
+            var $thisVal = this.val();
+            this.val('').val($thisVal);
+            return this;
+        }
+    }(jQuery));
+    $("#autofocusLastChar").focusTextToEnd();
+</script>
