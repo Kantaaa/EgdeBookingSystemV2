@@ -12,13 +12,14 @@ namespace EgdeBookingSystemV2.Models
 
         [Required(ErrorMessage = "Utstyrsnavn er påkrevd")] //Må fylles, med min og maks tegn.
         [Display(Name = "Utstyrsnavn")]
-        [StringLength(50, ErrorMessage = "Utstyrsnavnet må bestå av 3 til 50 tegn", MinimumLength = 3)]
+        [StringLength(20, ErrorMessage = "Utstyrsnavnet må bestå av 3 til 20 tegn", MinimumLength = 3)]
         public string Name { get; set; }
 
-
+        [StringLength(30, ErrorMessage = "Informasjonsbeskrivelse kan være opptil 30 tegn")]
         [Display(Name = "Informasjon")]
         public string Info { get; set; }
 
+        [StringLength(20, ErrorMessage = "Serienummeret kan være opptil 20 tegn")]
         [Display(Name = "Serienummer")]
         public string ModelNumber { get; set; }
 
